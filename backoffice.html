@@ -95,7 +95,9 @@
                   id="brand"
                   required
                 >
-                  <option selected>Seleziona un brand</option>
+                  <option value="" selected class="d-none">
+                    Seleziona un brand
+                  </option>
                   <option value="Atari">Atari</option>
                   <option value="Microsoft">Microsoft</option>
                   <option value="Nintendo">Nintendo</option>
@@ -124,7 +126,7 @@
               <button
                 type="reset"
                 class="btn btn-primary"
-                onclick="resetForm()"
+                onclick="resetForm(event)"
               >
                 RESET
               </button>
