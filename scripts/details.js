@@ -35,10 +35,6 @@ const getDetails = function () {
                     <h5 class="card-title">${details.name}</h5>
                     <p class="card-text">${details.description}</p>
                     <p class="card-text">${details.brand} - ${details.price}€</p>
-                    <div class="d-flex justify-content-between">
-                        <a href="./backoffice.html?id=${details._id}" class="btn btn-info">✏️MODIFICA PRODOTTO</a>
-                        <button class="btn btn-danger" onclick="deleteProduct()">🗑️ELIMINA PRODOTTO</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -50,24 +46,3 @@ const getDetails = function () {
 };
 
 getDetails();
-
-const deleteProduct = function () {
-  fetch(productURL + "/" + productID, {
-    method: "DELETE",
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWUxZTk5YjczOWY4NzAwMTU3YWIwOGQiLCJpYXQiOjE3NzY0MTMwODMsImV4cCI6MTc3NzYyMjY4M30.7EscX5UwqW8GsCyztZ2BkfjREjggPTDBnflaaczYOI8",
-    },
-  })
-    .then((response) => {
-      if (response.ok) {
-        alert("PRODOTTO ELIMINATO!");
-        location.assign("./index.html");
-      } else {
-        throw new Error("errore nell'eliminazione del prodotto!");
-      }
-    })
-    .catch((err) => {
-      console.log("ERRORE FETCH", err);
-    });
-};

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,8 +11,20 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body class="bg-dark min-vh-100 d-flex flex-column">
-    <header>
+    <style>
+      .hover-scale {
+        transition: transform 0.3s ease;
+        z-index: 0;
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.2);
+        z-index: 1;
+      }
+    </style>
+    <header class="sticky-top">
       <nav
         class="navbar navbar-expand-md bg-body-tertiary"
         data-bs-theme="dark"
@@ -59,11 +71,7 @@
         </div>
       </nav>
     </header>
-    <main class="flex-grow-1">
-      <section class="text-center my-3 text-light">
-        <h1>CRUDazon</h1>
-        <h3>Bagarini, ma con stile!</h3>
-      </section>
+    <main class="flex-grow-1 mt-4">
       <section class="text-center" id="spinner-section">
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>

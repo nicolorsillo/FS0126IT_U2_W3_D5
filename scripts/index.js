@@ -27,22 +27,36 @@ const getProducts = function () {
         const newCol = document.createElement("div");
         newCol.classList.add("col");
         newCol.innerHTML = `
-            <div class="card">
-                <img src=${productObject.imageUrl} class="card-img-top object-fit-contain" alt="product picture" height=200>
-                <div class="card-body">
-                    <h5 class="card-title">${productObject.name}</h5>
-                    <p class="card-text">${productObject.description}</p>
-                    <p class="card-text">${productObject.brand} - ${productObject.price}€</p>
-                    <a href="./details.html?id=${productObject._id}" class="btn btn-primary">VAI AI DETTAGLI</a>
-                </div>
+        <div class="hover-scale position-relative">
+        <a href="./details.html?id=${productObject._id}" class="text-decoration-none">
+            <div class="card" style="height: 400px;">
+
+                <img src=${productObject.imageUrl} class="card-img-top object-fit-contain h-25 my-4" alt="product picture">
+                 <div
+                          class="card-body h-100 d-flex flex-column justify-content-between"
+                  >
+                    <div>
+                      <h6 class="card-title">${productObject.brand}</h6>
+                      <h4 class="card-title">${productObject.name}</h4>
+                      <p class="card-text">${productObject.description}</p>
+                    </div>
+                    <div>
+                      <p class="card-text mt-auto">
+                        <small class="text-body-secondary"
+                          >Price = ${productObject.price}€</small
+                        >
+                      </p>
+                    </div>
+                  </div>
             </div>
+         </a>
+         </div>
         `;
         const row = document.getElementById("product-row");
         row.appendChild(newCol);
       });
     })
     .catch((error) => {
-      // qui significa che abbiamo riscontrato un problema
       console.log("ERRORE NELLA FETCH", error);
     });
 };
